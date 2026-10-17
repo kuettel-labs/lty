@@ -35,12 +35,12 @@ a:hover { color: var(--blue-hover); }
 .skip:focus { top: 16px; color: var(--paper); }
 .banner { background: var(--accent); color: var(--paper); text-align: center; font: 600 14px/1.4 var(--display); letter-spacing: .12em; text-transform: uppercase; padding: 10px 20px; }
 
-.container { max-width: 1248px; margin: 0 auto; padding: 0 var(--gutter); }
+.container { max-width: 1344px; margin: 0 auto; padding: 0 var(--gutter); }
 
 /* Header */
 .site-header { position: sticky; top: 0; z-index: 20; background: var(--paper); border-bottom: 1px solid var(--ice); }
 .header-row { display: flex; align-items: center; gap: 32px; min-height: 88px; }
-.wordmark { display: inline-flex; align-items: center; min-height: 56px; padding: 8px 18px; background: var(--atelier); color: var(--ink); text-decoration: none; font: 800 18px/1.2 var(--display); letter-spacing: -.01em; }
+.wordmark { white-space: nowrap; display: inline-flex; align-items: center; min-height: 56px; padding: 8px 18px; background: var(--atelier); color: var(--ink); text-decoration: none; font: 800 18px/1.2 var(--display); letter-spacing: -.01em; }
 .wordmark:hover { color: var(--blue); }
 .nav { margin-left: auto; }
 .menu { display: none; }
@@ -76,9 +76,9 @@ h4 { font-size: 16px; font-weight: 600; letter-spacing: .04em; margin: 24px 0 4p
 
 /* Hero */
 .hero { padding-top: 56px; border-top: 0; }
-.hero-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 520px); gap: 48px; align-items: center; }
+.hero-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: 40px; align-items: center; }
 .ph-hero { aspect-ratio: 4 / 5; }
-.hero h1 { font-size: 40px; overflow-wrap: break-word; }
+.hero h1 { font-size: clamp(48px, 3.8vw, 56px); overflow-wrap: break-word; }
 @media (max-width: 1100px) { .hero h1 { font-size: 56px; } }
 @media (max-width: 800px) { .hero h1 { font-size: 36px; } }
 .quote { margin-top: 36px; padding-left: 20px; border-left: 4px solid var(--blue); font-size: 19px; font-style: italic; }
@@ -180,3 +180,10 @@ h4 { font-size: 16px; font-weight: 600; letter-spacing: .04em; margin: 24px 0 4p
   .frame { border-width: 10px; }
 }
 @media (max-width: 340px) { .grid4 { grid-template-columns: 1fr; } }
+@media (max-width: 800px) { .vtitle-xl { font-size: 32px; } }
+@media (min-width: 801px) and (max-width: 1000px) {
+  .header-row { gap: 4px 16px; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
+  .nav-list { gap: 0; }
+  .nav-list a { padding: 0 8px; }
+  .lang { order: 4; flex-basis: 100%; text-align: right; font-size: 13px; }
+}
