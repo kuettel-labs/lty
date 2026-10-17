@@ -18,6 +18,7 @@
   --gutter: 96px;
   --rail: 120px;
   --pad: 88px;
+  color-scheme: light;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 96px; }
@@ -42,11 +43,11 @@ a:hover { color: var(--blue-hover); }
 .wordmark { display: inline-flex; align-items: center; min-height: 56px; padding: 8px 18px; background: var(--atelier); color: var(--ink); text-decoration: none; font: 800 18px/1.2 var(--display); letter-spacing: -.01em; }
 .wordmark:hover { color: var(--blue); }
 .nav { margin-left: auto; }
-.menu > summary { display: none; }
+.menu { display: none; }
 .nav-list { display: flex; gap: 8px; }
 .nav-list a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; color: var(--ink); text-decoration: none; font: 600 16px var(--display); }
 .nav-list a:hover { color: var(--blue); text-decoration: underline; }
-.lang { font: 600 14px var(--display); color: var(--muted); border: 1px solid var(--muted); padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+.lang { font: 400 14px var(--body); color: var(--muted); white-space: nowrap; }
 
 /* Sections */
 .section { padding: var(--pad) 0; border-top: 1px solid var(--atelier); }
@@ -56,7 +57,7 @@ a:hover { color: var(--blue-hover); }
 .vtitle { writing-mode: vertical-rl; transform: rotate(180deg); display: flex; flex-direction: column; align-items: flex-start; font: 800 88px/1 var(--display); color: var(--blue); letter-spacing: -.02em; white-space: nowrap; }
 .vtitle-xl { font-size: 112px; }
 .vlabel { margin-left: 14px; font: 600 16px/1 var(--display); letter-spacing: .5em; color: var(--blue); }
-.rail::before { content: ""; position: absolute; top: calc(-1 * var(--pad)); left: 104px; width: 3px; height: 72px; background: var(--blue); }
+.htitle { font: 800 64px/1.1 var(--display); color: var(--blue); letter-spacing: -.02em; margin-bottom: 40px; }
 
 .kicker { font: 600 14px var(--display); letter-spacing: .3em; text-transform: uppercase; color: var(--blue); }
 h1 { font-size: 56px; font-weight: 800; line-height: 1.08; margin: 18px 0 22px; }
@@ -75,9 +76,11 @@ h4 { font-size: 16px; font-weight: 600; letter-spacing: .04em; margin: 24px 0 4p
 
 /* Hero */
 .hero { padding-top: 56px; border-top: 0; }
-.hero .rail::before { display: none; }
-.hero-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: 48px; align-items: center; }
+.hero-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 520px); gap: 48px; align-items: center; }
 .ph-hero { aspect-ratio: 4 / 5; }
+.hero h1 { font-size: 40px; overflow-wrap: break-word; }
+@media (max-width: 1100px) { .hero h1 { font-size: 56px; } }
+@media (max-width: 800px) { .hero h1 { font-size: 36px; } }
 .quote { margin-top: 36px; padding-left: 20px; border-left: 4px solid var(--blue); font-size: 19px; font-style: italic; }
 
 /* Buttons */
@@ -105,7 +108,8 @@ h4 { font-size: 16px; font-weight: 600; letter-spacing: .04em; margin: 24px 0 4p
 /* Preise */
 .pricebox { background: var(--paper); border-top: 4px solid var(--blue); }
 .pricebox > h3 { margin: 0; padding: 14px 18px; background: var(--ice); font-size: 20px; }
-.pricebox > h4, .pricebox > .small { padding: 0 18px; }
+.pricebox > h4, .pricebox > .small, .pricebox > .ph-note { padding: 0 18px; }
+.ph-note { margin-top: 12px; font: 600 14px/1.5 var(--display); color: var(--muted); }
 .pricelist li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px; padding: 12px 18px; border-bottom: 1px solid var(--ice); }
 .pricelist li span:last-child { font-weight: 600; white-space: nowrap; }
 .note { margin-top: 32px; background: var(--atelier); padding: 20px 24px; }
@@ -119,12 +123,13 @@ h4 { font-size: 16px; font-weight: 600; letter-spacing: .04em; margin: 24px 0 4p
 .profil { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 48px; align-items: center; }
 .ph-portrait { aspect-ratio: 4 / 5; }
 .profil .muted { margin-top: 16px; }
+.kontakt-meta { margin-top: 18px; }
 
 /* Footer */
 .site-footer { background: var(--ink); color: var(--paper); padding: 56px 0; }
 .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: center; }
 .footer-wm { font: 800 20px var(--display); }
-.footer-muted { opacity: .85; font-size: 15px; }
+.footer-muted { color: #DBDBDB; font-size: 15px; }
 .footer-links { display: flex; gap: 8px; }
 .footer-links a { color: var(--paper); display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; }
 .site-footer :focus-visible { outline-color: var(--paper); }
@@ -151,7 +156,9 @@ h4 { font-size: 16px; font-weight: 600; letter-spacing: .04em; margin: 24px 0 4p
   .header-row { min-height: 64px; gap: 8px 12px; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
   .wordmark { font-size: 15px; min-height: 44px; padding: 6px 12px; }
   .nav { margin-left: auto; }
-  .lang { order: 4; flex-basis: 100%; border: 0; padding: 0; font-size: 13px; }
+  .lang { order: 4; flex-basis: 100%; font-size: 13px; }
+  .nav-desktop { display: none; }
+  .menu { display: block; }
   .menu > summary { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 2px solid var(--blue); color: var(--blue); font: 600 16px var(--display); cursor: pointer; list-style: none; }
   .menu > summary::-webkit-details-marker { display: none; }
   .menu .nav-list { display: none; }
@@ -159,10 +166,10 @@ h4 { font-size: 16px; font-weight: 600; letter-spacing: .04em; margin: 24px 0 4p
   .menu[open] .nav-list a { font-size: 24px; min-height: 56px; }
   .nav-simple .nav-list a { padding: 0 8px; }
   .rail-grid { grid-template-columns: 1fr; gap: 24px; }
-  .rail::before { display: none; }
   .vtitle, .vtitle-xl { writing-mode: horizontal-tb; transform: none; flex-direction: column-reverse; font-size: 44px; line-height: 1.1; white-space: normal; }
   .vlabel { margin: 0 0 8px; font-size: 12px; letter-spacing: .4em; }
   h1 { font-size: 36px; }
+  .htitle { font-size: 44px; margin-bottom: 24px; }
   .lead { font-size: 18px; }
   .grid2, .grid3, .profil { grid-template-columns: 1fr; gap: 24px; }
   .grid4 { gap: 16px; }
